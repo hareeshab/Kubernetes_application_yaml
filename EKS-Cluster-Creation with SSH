@@ -1,0 +1,14 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: temp-cluster
+  region: us-west-1
+
+nodeGroups:
+  - name: ng-1
+    # the t3.medium supports 3 ENIs, so keep that in mind on how many pods you can put in the Node
+    instanceType: t2.medium
+    desiredCapacity: 2
+    ssh:
+      publicKeyPath: hareesha-aws.pub
